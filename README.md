@@ -20,3 +20,12 @@ is archived at [bytedance/piano_transcription](https://github.com/bytedance/pian
 Release assets are immutable. A replacement graph is published under a new release tag rather
 than overwriting an existing model. See `LICENSE` for this repository's terms; upstream components
 retain their original licenses and attribution requirements.
+
+## Distribution
+
+- Immutable source: [GitHub Release `model-v1`](https://github.com/user198743/unacorda-models/releases/tag/model-v1)
+- Browser runtime URL: <https://user198743.github.io/unacorda-models/note_pedal.fp16.onnx>
+
+The GitHub Pages deployment downloads the Release asset and verifies its SHA-256 checksum before
+publishing it. This keeps the binary out of Git history while providing a stable, cross-origin URL
+that browser applications can fetch.

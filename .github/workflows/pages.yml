@@ -24,7 +24,7 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Download the immutable model release
+      - name: Download the immutable model releases
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -34,8 +34,13 @@ jobs:
             --repo "${{ github.repository }}" \
             --pattern note_pedal.fp16.onnx \
             --dir _site
+          gh release download model-v2 \
+            --repo "${{ github.repository }}" \
+            --pattern note_pedal.onnx \
+            --dir _site
           echo > _site/.nojekyll
           echo "8f2533cc2b466e0b5cb41be22747ed3e3a0ab0dc80b3d11f9b4e7fccda043779  _site/note_pedal.fp16.onnx" | sha256sum --check --strict
+          echo "192bd2dbdf06e0a8f49da10c459542b9e1809ab332f6afdceaa9bf6108a20d5f  _site/note_pedal.onnx" | sha256sum --check --strict
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

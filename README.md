@@ -21,11 +21,24 @@ Release assets are immutable. A replacement graph is published under a new relea
 than overwriting an existing model. See `LICENSE` for this repository's terms; upstream components
 retain their original licenses and attribution requirements.
 
+## `model-v2`
+
+- Asset: `note_pedal.onnx`
+- SHA-256: `192bd2dbdf06e0a8f49da10c459542b9e1809ab332f6afdceaa9bf6108a20d5f`
+- Size: 154,214,196 bytes
+- Format: ONNX with float32 input/output and a full fp32 graph
+
+This is the production default for noisy user recordings. The smaller mixed-precision `model-v1`
+artifact remains available for evaluation, but it is not the default because its measured note and
+note-off regressions on amateur phone recordings are not yet acceptable.
+
 ## Distribution
 
 - Immutable source: [GitHub Release `model-v1`](https://github.com/user198743/unacorda-models/releases/tag/model-v1)
-- Browser runtime URL: <https://user198743.github.io/unacorda-models/note_pedal.fp16.onnx>
+- Immutable fp32 source: [GitHub Release `model-v2`](https://github.com/user198743/unacorda-models/releases/tag/model-v2)
+- Browser fp16 URL: <https://user198743.github.io/unacorda-models/note_pedal.fp16.onnx>
+- Browser fp32 URL: <https://user198743.github.io/unacorda-models/note_pedal.onnx>
 
-The GitHub Pages deployment downloads the Release asset and verifies its SHA-256 checksum before
-publishing it. This keeps the binary out of Git history while providing a stable, cross-origin URL
-that browser applications can fetch.
+The GitHub Pages deployment downloads both Release assets and verifies their SHA-256 checksums
+before publishing them. This keeps the binaries out of Git history while providing stable,
+cross-origin URLs that browser applications can fetch.
